@@ -61,15 +61,11 @@ def calculate(request):
                 result = "Invalid operator"
                 operation_type = None
 
-            # Save the calculation details to the database
-            Calculation.objects.create(
-                num1=num1,
-                num2=num2,
-                operator=operator,
-                result=result
-            )
 
-            return render(request, 'calcu_app/index.html', {'result': result, 'operation_type': operation_type})
+            return render(request, 'calcu_app/index.html', {
+                'result': result,
+                'operation_type': operation_type
+            })
         else:
             messages.error(request, "Please correct the form errors.")
     else:
