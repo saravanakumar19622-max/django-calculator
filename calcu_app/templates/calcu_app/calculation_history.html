@@ -1,0 +1,64 @@
+<!-- templates/calcu_app/calculation_history.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculation History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Number 1</th>
+                <th>Number 2</th>
+                <th>Operator</th>
+                <th>Result</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for calculation in calculations %}
+            <tr>
+                <td>{{ calculation.num1 }}</td>
+                <td>{{ calculation.num2 }}</td>
+                <td>{{ calculation.operator }}</td>
+                <td>{{ calculation.result }}</td>
+                <td>{{ calculation.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
